@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>
+    This is home page
+</h2>
+<h3>
+    <a href="{% url 'create' %}">Add a new post +</a>
+</h3>
+{% for post in posts %}
+<ul>
+    <li>
+        <a href="{% url 'detail' post.pk %}"> {{post.title}} </a>
+    </li>
+</ul>
+{% endfor %}
+{% endblock %}
