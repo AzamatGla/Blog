@@ -10,6 +10,13 @@
         <a href="{% url 'home' %}">Home page</a>
     </h1>
 </header>
+{% if user.is_authenticated %}
+<p> Hello {{user.username}} !</p>
+<p><a href="{% url 'logout' %}">Log out</a> </p>
+{% else %}
+<p>You are not logged in yet. Please <a href="{% url 'login' %}">login here</a> or
+<a href="{% url 'signup' %}">sign up here</a> </p>
+{% endif %}
 {% block content %}
 {% endblock %}
 </body>
